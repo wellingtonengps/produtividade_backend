@@ -1,0 +1,40 @@
+services:
+  server:
+    container_name: corelab-api-challenge
+    build: .
+    command: bash -c  "npm run dev && node ace make:migration Migration && node ace migration:run"
+    depends_on:
+      - postgres
+      - pgadmin4
+    ports:
+      - 3333:3333
+    volumes:
+      - ./:/urs/app
+
+  postgres:
+    image: postgres
+    container_name: postgres-corelab-api-challege
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: corelabuser
+      POSTGRES_PASSWORD: corelabpassword
+      POSTGRES_DB: Corellab
+    hostname: postgres
+    ports:
+      - 15432:5432
+    volumes:
+      - /var/lib/postgres/data
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    container_name: pgadmin-corelab-api-challege
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.com.br
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 16543:80
+    depends_on:
+      - postgres
+    volumes:
+      - /var/lib/pgadmin
+    restart: unless-stopped
