@@ -8,4 +8,5 @@ export interface TypeVehicle {
   color: string
   price: number
   createdAt: Date
+  updateAt: Date
 }
