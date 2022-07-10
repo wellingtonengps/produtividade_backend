@@ -6,7 +6,7 @@ export default class VehiclesController {
     const vehicles = await Vehicle.all()
 
     return {
-      data: vehicles,
+      vehicles,
     }
   }
 
@@ -18,8 +18,7 @@ export default class VehiclesController {
     response.status(201)
 
     return {
-      message: 'Vehicle criado com sucesso!',
-      data: vehicle,
+      vehicle,
     }
   }
 
@@ -27,7 +26,7 @@ export default class VehiclesController {
     const vehicle = await Vehicle.findOrFail(params.id)
 
     return {
-      data: vehicle,
+      vehicle,
     }
   }
 
@@ -47,8 +46,7 @@ export default class VehiclesController {
     await vehicle.save()
 
     return {
-      message: 'Vehicle atualizado!',
-      data: vehicle,
+      vehicle,
     }
   }
 
@@ -58,8 +56,7 @@ export default class VehiclesController {
     await vehicle.delete()
 
     return {
-      message: 'Vehicle excluído com sucesso!',
-      data: vehicle,
+      vehicle,
     }
   }
 }
