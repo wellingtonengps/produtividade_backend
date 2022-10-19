@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Vehicle from 'App/Models/Vehicle'
+import Vehicle from 'App/Models/Usuario'
 
 export default class VehiclesController {
   public async index() {
