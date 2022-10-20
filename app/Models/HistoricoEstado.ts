@@ -1,25 +1,17 @@
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from 'luxon'
+import Demanada from './Demanda'
 
 export default class HistoricoEstado extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column()
-  public idDemanda: string
+  @hasOne(() => Demanada)
+  public recurso: HasOne<typeof Demanada>
 
   @column()
-  public estado: number
+  public estado: string
 
-  @column()
-  public dataMudancaEstado: string
+  @column.dateTime({ autoCreate: true })
+  public data: DateTime
 }
-
-/*
-
-@column.dateTime({ autoCreate: true })
-public createdAt: DateTime
-
-@column.dateTime({ autoCreate: true, autoUpdate: true })
-public updatedAt: DateTime
-
-*/

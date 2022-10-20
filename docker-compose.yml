@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres
-    container_name: postgres-corelab-api-challege
+    container_name: postgres-produtividade
     env_file:
       - .env
     environment:
@@ -16,7 +16,7 @@ services:
 
   pgadmin4:
     image: dpage/pgadmin4
-    container_name: pgadmin-corelab-api-challege
+    container_name: pgadmin-produtividade
     env_file:
       - .env
     environment:
@@ -30,7 +30,7 @@ services:
       - /var/lib/pgadmin
 
   server:
-    container_name: corelab-api-challenge
+    container_name: server-produtividade
     restart: always
     build: .
     depends_on:

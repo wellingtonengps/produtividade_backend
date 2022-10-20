@@ -1,22 +1,16 @@
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
-import HistoricoEstado from './HistoricoEstado'
+import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from 'luxon'
 
 export default class Demanada extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @hasMany(() => HistoricoEstado)
-  public listaHistoricoEstado: HasMany<typeof HistoricoEstado>
+  @column()
+  public nome: string
 
   @column()
-  public dataEntraga: number
+  public dataEntraga: DateTime
 
   @column()
-  public horaDemanda: string
-
-  @column()
-  public listaUsuario: boolean
-
-  @column()
-  public pesoComplexidade: string
+  public estado: string
 }

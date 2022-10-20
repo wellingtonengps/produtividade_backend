@@ -20,4 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('/vehicles', 'VehiclesController').apiOnly()
+Route.resource('/atividade', 'AtividadeController').apiOnly()
+Route.resource('/demanda', 'DemandaController').apiOnly()
+Route.resource('/feriado', 'FeriadoController').apiOnly()
+Route.resource('/historico', 'HistoricoController').apiOnly()
+Route.resource('/recurso', 'RecursoController').apiOnly()
+Route.resource('/registroHora', 'RegistroHorasController').apiOnly()
+Route.resource('/time', 'timeController').apiOnly()
